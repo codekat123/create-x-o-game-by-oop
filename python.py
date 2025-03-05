@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 class player:
     def __init__(self):
         self.name = ""
@@ -129,6 +126,4 @@ class game :
         self.board.reset_board()
         self.current_player = 0
         self.game_play()
-#print(game().game_play())
- 
->>>>>>> 539fb29 (my first project)
+#print(game().game_play()) (my first project)
