@@ -104,15 +104,16 @@ class game :
     [0, 4, 8],  
     [2, 4, 6]   ]
         for i in check:
-            if self.board.board[i[1]] == self.board.board[i[2]] == self.board.board[i[3]]:
+            if self.board.board[i[0]] == self.board.board[i[1]] == self.board.board[i[2]]:
               return True
         return False      
     def play_turn(self):
         players = self.player[self.current_player]
         self.board.display_board()
+        self.switch()
         while True :
             try:
-                print(f"{players}'s your turn")
+                print(f"{players.name}'s your turn")
                 cell = int(input("choose a cell"))
                 if 1 <= cell <= 9 and self.board.update_board(cell,players.symbol):
                     break
@@ -126,4 +127,5 @@ class game :
         self.board.reset_board()
         self.current_player = 0
         self.game_play()
-#print(game().game_play()) (my first project)
+#print(game().game_play())
+ 
