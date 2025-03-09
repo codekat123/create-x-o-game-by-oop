@@ -1,8 +1,11 @@
+import os
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
 class player:
     def __init__(self):
         self.name = ""
         self.symbol = ""
-
+        self.score = 0
     def set_name(self):
         while True:
             name = input("enter your name (only letter): ")
@@ -83,7 +86,7 @@ class game :
                 elif choose == "2":
                     self.quit()
                     break    
-
+            clear_screen()
     def setup(self):
         for number,player in enumerate(self.player, start = 1):
             print(f"{number}player's turn, enter your details")
@@ -104,13 +107,14 @@ class game :
     [0, 4, 8],  
     [2, 4, 6]   ]
         for i in check:
-            if self.board.board[i[0]] == self.board.board[i[1]] == self.board.board[i[2]]:
+            if self.board.board[i[0]] == self.board.board[i[1]] == self.board.board[i[2]] and not self.board.board[i[0]].isdigit():
+              self.player[self.current_player] += 1
               return True
         return False      
     def play_turn(self):
         players = self.player[self.current_player]
         self.board.display_board()
-        self.switch()
+        clear_screen()
         while True :
             try:
                 print(f"{players.name}'s your turn")
@@ -121,11 +125,12 @@ class game :
                     print("invalid move")
             except:
                 print("invalid value")
+        self.switch()        
     def switch(self):
         self.current_player = 1 - self.current_player                    
     def restart_game(self):
         self.board.reset_board()
         self.current_player = 0
         self.game_play()
-#print(game().game_play())
- 
+        clear_screen() 
+print(game().game_play())
