@@ -23,8 +23,8 @@ class calculator:
         elif self.operation == "-":
             print(self.num1 - self.num2)
         elif self.operation == "/":
-            print(self.num1 / self.num2)
 
+            print(self.num1 / self.num2)
 # Create an instance of the calculator class
 object = calculator()
 # Call the numbers method to get input from the user
