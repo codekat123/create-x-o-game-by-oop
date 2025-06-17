@@ -1,2 +1,1 @@
-# Ahmed
-my stock
+
